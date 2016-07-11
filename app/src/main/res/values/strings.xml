@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">School Manager</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string-array name="subjects">
+        <item>Biology</item>
+        <item>Health</item>
+        <item>Homeroom</item>
+        <item>Language Arts</item>
+        <item>Math</item>
+        <item>Orchestra</item>
+        <item>Social Studies</item>
+        <item>Science</item>
+        <item>Other</item>
+
+    </string-array>
+    <string-array name="names">
+        <!--all teachers-->
+        <item>Mr.Dial</item>
+        <item>Mr.Munday</item>
+        <item>Mrs.Eliason</item>
+        <item>Mr.Mccoy</item>
+        <item>Mr.Gunnels</item>
+        <item>Ms.Aden</item>
+        <item>Ms.Kirtley</item>
+        <item>Mr.Gunnels part 2</item>
+
+    </string-array>
+    <string-array name="time">
+        <!--class times-->
+        <item>time</item>
+        <item>time</item>
+        <item>time</item>
+        <item>time</item>
+        <item>time</item>
+        <item>time</item>
+        <item>time</item>
+        <item>time</item>
+
+    </string-array>
+    <string-array name="classes">
+        <!--class times-->
+        <item>Math</item>
+        <item>Social Studies</item>
+        <item>Language Arts</item>
+        <item>Science</item>
+        <item>Health</item>
+        <item>Homeroom</item>
+        <item>eighth</item>
+        <item>orchestra</item>
+
+    </string-array>
+    <string name="title_activity_eliason_web_view">EliasonWebView</string>
+</resources>

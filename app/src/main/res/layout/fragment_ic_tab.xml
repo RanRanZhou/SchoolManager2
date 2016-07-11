@@ -1,0 +1,74 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        tools:context="com.zhou.schoolmanager.tabs.icTab"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/book_stack"
+                android:layout_margin="1dp"
+                android:id="@+id/LArts" />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/usa"
+                android:layout_margin="1dp"
+                android:id="@+id/aHistory" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/infinitecampus2"
+                android:layout_margin="1dp"
+                android:id="@+id/infiniteCampus" />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/calculator"
+                android:id="@+id/b3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:id="@+id/b4" />
+
+            <Button
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:id="@+id/b5" />
+        </LinearLayout>
+    </LinearLayout>
