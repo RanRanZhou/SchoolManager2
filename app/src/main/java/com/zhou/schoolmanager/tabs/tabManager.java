@@ -22,8 +22,8 @@ public class tabManager extends FragmentPagerAdapter {
                 return new homeworkTab();
             case 2:
                 return new classTab();
-            case 3:
-                return new icTab();
+//            case 3:
+//                return new linksTab();
             default:
                 break;
         }
@@ -32,6 +32,6 @@ public class tabManager extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 }

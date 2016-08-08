@@ -43,7 +43,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionBar.addTab(actionBar.newTab().setText("Period").setTabListener(this));
         actionBar.addTab(actionBar.newTab().setText("Homework").setTabListener(this));
         actionBar.addTab(actionBar.newTab().setText("Classes").setTabListener(this));
-        actionBar.addTab(actionBar.newTab().setText("Resources").setTabListener(this));
+    //    actionBar.addTab(actionBar.newTab().setText("Resources").setTabListener(this));
     }
 
     @Override
@@ -60,6 +60,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
+    //deleting sqltasks in the homework tab
     public void taskDelete(View view) {
 
         View v = (View) view.getParent();

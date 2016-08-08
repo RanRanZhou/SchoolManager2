@@ -1,5 +1,5 @@
  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        tools:context="com.zhou.schoolmanager.tabs.icTab"
+        tools:context="com.zhou.schoolmanager.tabs.linksTab"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,17 +15,15 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/book_stack"
                 android:layout_margin="1dp"
-                android:id="@+id/LArts" />
+                android:id="@+id/button1" />
 
             <Button
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/usa"
                 android:layout_margin="1dp"
-                android:id="@+id/aHistory" />
+                android:id="@+id/button2" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,17 +36,15 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/infinitecampus2"
                 android:layout_margin="1dp"
-                android:id="@+id/infiniteCampus" />
+                android:id="@+id/button3" />
 
             <Button
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/calculator"
-                android:id="@+id/b3" />
+                android:id="@+id/button4" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,13 +58,13 @@
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:id="@+id/b4" />
+                android:id="@+id/button5" />
 
             <Button
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:id="@+id/b5" />
+                android:id="@+id/button6" />
         </LinearLayout>
     </LinearLayout>

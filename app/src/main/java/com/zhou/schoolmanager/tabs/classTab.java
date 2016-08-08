@@ -36,15 +36,15 @@ public class classTab extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myClasses.add(new Subject("Biology","Ms.Hendrick","7:30"));
-        myClasses.add(new Subject("Orchestra","Ms.Kirtley","8:35"));
-        myClasses.add(new Subject("Language Arts","Mrs.Eliason","9:29"));
-        myClasses.add(new Subject("Social Studies","Mrs.Adan","10:23"));
-        myClasses.add(new Subject("Health","Mr.Munday","11:17"));
-        myClasses.add(new Subject("Lunch","Alice Grady","12:11"));
-        myClasses.add(new Subject("Science","Mr.Mccoy","1:05"));
-        myClasses.add(new Subject("Math","Mr.Dial","1:59"));
-        myClasses.add(new Subject("Science Olympiad", "Mr.Mccoy", "2:54"));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("","",""));
+        myClasses.add(new Subject("", "", ""));
     }
 
     //10:23,11:17,12:11,1:05,1:59,2:54
@@ -61,7 +61,7 @@ public class classTab extends ListFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
                String test = parent.getItemAtPosition(position).toString();
-                Log.e("test",test);
+
             }
         });
         return rootTab;
