@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">School Manager</string>
+    <string name="app_name">NHS Manager</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -56,4 +56,11 @@
 
     </string-array>
     <string name="title_activity_eliason_web_view">EliasonWebView</string>
+    <string name="reset_period_tab">Reset Period Tab</string>
+    <string name="info">Info</string>
+    <string name="addclass">addClass</string>
+    <string name="add_class">Add Class</string>
+    <string name="add_homework">add homework</string>
+    <string name="refresh">refresh</string>
+    <string name="delete_class">Delete Class</string>
 </resources>

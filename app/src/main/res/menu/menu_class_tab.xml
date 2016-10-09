@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".periodTab">
+    <item android:id="@+id/addButton" android:icon="@drawable/ic_add_circle_outline_white_24dp"
+        android:title="@string/add_class"
+        android:orderInCategory="0"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/deleteButton"
+        android:title="Delete Classes"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+</menu>

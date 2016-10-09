@@ -1,11 +1,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zhou.schoolmanager.tabs.timeTab">
+    android:id="@+id/fragment_time_layout"
+    tools:context="com.zhou.schoolmanager.tabs.timeTab"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <WebView
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Are you a freshman?"
+        android:id="@+id/FreshmanQuestion"
+        android:textSize="50sp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_weight="0.3" />
+
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/webView" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.42" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:id="@+id/YesButton"
+        android:textSize="30sp"
+        android:textAllCaps="false"
+
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:id="@+id/NoButton"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:textSize="30sp"/>
+
+
+
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feedback and bug reports should be sent to shengran@gmail.com"
+        android:id="@+id/infoText"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

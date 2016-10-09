@@ -1,64 +1,71 @@
 package com.zhou.schoolmanager;
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
+
+
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ActionMenuView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.zhou.schoolmanager.SQL.MyDBHelper;
 import com.zhou.schoolmanager.SQL.TaskContract;
-import com.zhou.schoolmanager.SQL.TaskDBHelper;
+import com.zhou.schoolmanager.backend.InfoPage;
 import com.zhou.schoolmanager.tabs.tabManager;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+public class MainActivity extends AppCompatActivity {
     com.zhou.schoolmanager.tabs.tabManager tabManager;
     ViewPager pager;
     CheckBox checkBox;
+    Toolbar toolBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_period_tab);
+        setContentView(R.layout.activity_main_tab);
+
+        toolBar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
 
         tabManager = new tabManager(getSupportFragmentManager());
-        pager = (ViewPager) findViewById(R.id.pager);
+        pager = (ViewPager) findViewById(R.id.viewpager);
         pager.setAdapter(tabManager);
-        final ActionBar actionBar = getActionBar();
 
-        pager.setOnPageChangeListener(
-                new ViewPager.SimpleOnPageChangeListener() {
-                    @Override
-                    public void onPageSelected(int position) {
-                        actionBar.setSelectedNavigationItem(position);
-                    }
-                }
-        );
-
-
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionBar.addTab(actionBar.newTab().setText("Period").setTabListener(this));
-        actionBar.addTab(actionBar.newTab().setText("Homework").setTabListener(this));
-        actionBar.addTab(actionBar.newTab().setText("Classes").setTabListener(this));
-    //    actionBar.addTab(actionBar.newTab().setText("Resources").setTabListener(this));
-    }
-
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        pager.setCurrentItem(tab.getPosition());
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(pager);
 
     }
-
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.menu_main, menu);
+        return (super.onCreateOptionsMenu(menu));
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
 
+            case R.id.infopage: {
+                Intent intent = new Intent(this, InfoPage.class);
+                startActivity(intent);
+            }
+            return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
     //deleting sqltasks in the homework tab
     public void taskDelete(View view) {
@@ -74,7 +81,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     task);
 
 
-            TaskDBHelper helper = new TaskDBHelper(this);
+            MyDBHelper helper = new MyDBHelper(this,null,null,1);
             SQLiteDatabase sqlDB = helper.getWritableDatabase();
             sqlDB.execSQL(sql);
             Log.e("tag", "checked");

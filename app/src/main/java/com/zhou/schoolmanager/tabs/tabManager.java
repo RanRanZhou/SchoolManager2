@@ -22,12 +22,26 @@ public class tabManager extends FragmentPagerAdapter {
                 return new homeworkTab();
             case 2:
                 return new classTab();
-//            case 3:
-//                return new linksTab();
+
             default:
                 break;
         }
         return null;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+            switch(position) {
+                case 0:
+                    return "Period";
+                case 1:
+                    return "Homework";
+                case 2:
+                    return "Classes";
+                default:
+                    return null;
+            }
+
     }
 
     @Override

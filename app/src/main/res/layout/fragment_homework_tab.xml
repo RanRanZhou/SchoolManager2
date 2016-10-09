@@ -1,40 +1,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.zhou.schoolmanager.tabs.homeworkTab"
-    android:id="@+id/homeworkTab">
+    android:id="@+id/homeworkTab"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="269dp"
         android:id="@android:id/list"
-        android:layout_weight="1"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add homework"
-        android:id="@+id/addButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="refresh"
-        android:id="@+id/refreshButton"
-        android:layout_below="@android:id/list"
-        android:layout_centerHorizontal="true" />
+         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:id="@+id/textView2"
         android:background="@android:color/white"
-        android:layout_alignBottom="@android:id/list"
+        android:layout_below="@android:id/list"
         android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh"
+        android:id="@+id/refreshButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentEnd="true" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_homework"
+        android:id="@+id/addButton"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/refreshButton" />
 
 </RelativeLayout>
