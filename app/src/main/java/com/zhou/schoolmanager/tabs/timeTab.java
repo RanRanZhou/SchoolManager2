@@ -1,19 +1,14 @@
 package com.zhou.schoolmanager.tabs;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.util.Log;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,8 +19,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.zhou.schoolmanager.R;
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -185,23 +178,61 @@ public class timeTab extends Fragment {
             boolean schoolHours = isTimeBetweenTwoTime(Hours.fstart0, Hours.fend7, strTime);
             if (freshman && schoolHours) {
                 if (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.WEDNESDAY) {
+
                     if (isTimeBetweenTwoTime(Hours.fstart0, Hours.fend0, strTime)) {
+                        //Zero Hour
                         refreshVars(Hours.fend0, strTime, "0");
-                    } else if (isTimeBetweenTwoTime(Hours.fstartSTRETCH, Hours.fendSTRETCH, strTime)) {
+
+                    }  else if (isTimeBetweenTwoTime(Hours.fstartSTRETCH, Hours.fendSTRETCH, strTime)) {
+                        //STRETCH
                         refreshVars(Hours.fendSTRETCH, strTime, "STRETCH");
+
+                    } else if (isTimeBetweenTwoTime(Hours.fendSTRETCH, Hours.fstart1, strTime)) {
+                        //PP
+                        refreshVars(Hours.fstart1, strTime, "passing period");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart1, Hours.fend1, strTime)) {
+                        //First Hour
                         refreshVars(Hours.fend1, strTime, "1st");
+
+                    } else if (isTimeBetweenTwoTime(Hours.fend1, Hours.fstart2, strTime)) {
+                        //PP
+                        refreshVars(Hours.fstart2, strTime, "Passing Period");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart2, Hours.fend2, strTime)) {
+                        //Second Hour
                         refreshVars(Hours.fend2, strTime, "2nd");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart3, Hours.fend3, strTime)) {
+                        //Third Hour
                         refreshVars(Hours.fend3, strTime, "3rd");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart4, Hours.fend4, strTime)) {
+                        //Fourth Hour
                         refreshVars(Hours.fend4, strTime, "4th");
+
+                    } else if (isTimeBetweenTwoTime(Hours.fend4, Hours.fstart5, strTime)) {
+                       //PP
+                        refreshVars(Hours.fstart5, strTime, "Passing Period");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart5, Hours.fend5, strTime)) {
+                        //Fifth Hour
                         refreshVars(Hours.fend5, strTime, "5th");
+
+                    } else if (isTimeBetweenTwoTime(Hours.fend5, Hours.fstart6, strTime)) {
+                        //PP
+                        refreshVars(Hours.fstart6, strTime, "Passing Period");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart6, Hours.fend6, strTime)) {
+                        //Sixth Hour
                         refreshVars(Hours.fend6, strTime, "6th");
+
+                    } else if (isTimeBetweenTwoTime(Hours.fend6, Hours.fstart7, strTime)) {
+                        //PP
+                        refreshVars(Hours.fstart7, strTime, "Passing Period");
+
                     } else if (isTimeBetweenTwoTime(Hours.fstart7, Hours.fend7, strTime)) {
+                        //Seventh Hour
                         refreshVars(Hours.fend7, strTime, "7th");
                     } else {
                         timeView.setText("Passing Period");
@@ -209,27 +240,38 @@ public class timeTab extends Fragment {
                     //FRESHMAN STARS
                 } else if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY) {
                     if (isTimeBetweenTwoTime(Hours.fstart0, Hours.fend0, strTime)) {
-                        refreshVars(Hours.fend0, strTime, "0");
+                        //Zero Hour
+                        refreshVars(Hours.fend0, strTime, "0 hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstartSTRETCH, Hours.fendSTRETCH, strTime)) {
+                        //STRETCH
                         refreshVars(Hours.fendSTRETCH, strTime, "STRETCH");
                     } else if (isTimeBetweenTwoTime(Hours.fstart1STARS, Hours.fend1STARS, strTime)) {
-                        refreshVars(Hours.fend1STARS, strTime, "1st");
+                        //First Hour
+                        refreshVars(Hours.fend1STARS, strTime, "1st hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstartTTS, Hours.fendTTS, strTime)) {
-                        refreshVars(Hours.fendTTS, strTime, "STARS");
+                        //STARS
+                        refreshVars(Hours.fendTTS, strTime, "STARS hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstart2STARS, Hours.fend2STARS, strTime)) {
-                        refreshVars(Hours.fend2STARS, strTime, "2nd");
+                        //Second Hour
+                        refreshVars(Hours.fend2STARS, strTime, "2nd hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstart3STARS, Hours.fend3STARS, strTime)) {
-                        refreshVars(Hours.fend3STARS, strTime, "3rd");
+                        //Third Hour
+                        refreshVars(Hours.fend3STARS, strTime, "3rd hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstart4STARS, Hours.fend4STARS, strTime)) {
-                        refreshVars(Hours.fend4STARS, strTime, "4th");
+                        //Fourth Hour
+                        refreshVars(Hours.fend4STARS, strTime, "4th hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstart5STARS, Hours.fend5STARS, strTime)) {
-                        refreshVars(Hours.fend5STARS, strTime, "5th");
+                        //Fifth Hour
+                        refreshVars(Hours.fend5STARS, strTime, "5th hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstartTTS2, Hours.fendTTS2, strTime)) {
+                        //STARS
                         refreshVars(Hours.fendTTS2, strTime, "STARS");
                     } else if (isTimeBetweenTwoTime(Hours.fstart6STARS, Hours.fend6STARS, strTime)) {
-                        refreshVars(Hours.fend6STARS, strTime, "6th");
+                        //Sixth Hour
+                        refreshVars(Hours.fend6STARS, strTime, "6th hour");
                     } else if (isTimeBetweenTwoTime(Hours.fstart7STARS, Hours.fend7STARS, strTime)) {
-                        refreshVars(Hours.fend7STARS, strTime, "7th");
+                        //Seventh Hour
+                        refreshVars(Hours.fend7STARS, strTime, "7th hour");
                     } else {
                         timeView.setText("Passing Period");
                     }
@@ -238,23 +280,52 @@ public class timeTab extends Fragment {
                 //USUAL UPPERCLASSMAN SCHEDULE
                 if (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.WEDNESDAY) {
                     if (isTimeBetweenTwoTime(Hours.ustart0, Hours.uend0, strTime)) {
-                        refreshVars(Hours.uend0, strTime, "0");
+                        //Zero Hour
+                        refreshVars(Hours.uend0, strTime, "0 hour");
+                    } else if (isTimeBetweenTwoTime(Hours.uend0, Hours.ustartSTRETCH, strTime)) {
+                        //PP
+                        refreshVars(Hours.ustartSTRETCH, strTime, "passing period");
+
                     } else if (isTimeBetweenTwoTime(Hours.ustartSTRETCH, Hours.uendSTRETCH, strTime)) {
+                        //STRETCH
                         refreshVars(Hours.uendSTRETCH, strTime, "STRETCH");
                     } else if (isTimeBetweenTwoTime(Hours.ustart1, Hours.uend1, strTime)) {
-                        refreshVars(Hours.uend1, strTime, "1st");
+                        //First Hour
+                        refreshVars(Hours.uend1, strTime, "1st hour");
+                    } else if (isTimeBetweenTwoTime(Hours.uend1, Hours.ustart2, strTime)) {
+                        //PP
+                        refreshVars(Hours.ustart2, strTime, "passing period");
+
                     } else if (isTimeBetweenTwoTime(Hours.ustart2, Hours.uend2, strTime)) {
-                        refreshVars(Hours.uend2, strTime, "2nd");
+                        //Second Hour
+                        refreshVars(Hours.uend2, strTime, "2nd hour");
+                    } else if (isTimeBetweenTwoTime(Hours.uend2, Hours.ustart3, strTime)) {
+                        //PP
+                        refreshVars(Hours.ustart3, strTime, "passing period");
+
                     } else if (isTimeBetweenTwoTime(Hours.ustart3, Hours.uend3, strTime)) {
-                        refreshVars(Hours.uend3, strTime, "3rd");
+                        //Third Hour
+                        refreshVars(Hours.uend3, strTime, "3rd hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustart4, Hours.uend4, strTime)) {
-                        refreshVars(Hours.uend4, strTime, "4th");
-                    } else if (isTimeBetweenTwoTime(Hours.ustart5, Hours.uend5, strTime)) {
-                        refreshVars(Hours.uend5, strTime, "5th");
+                        //Lunch
+                        refreshVars(Hours.uend4, strTime, "4th hour");
+                    }  else if (isTimeBetweenTwoTime(Hours.ustart5, Hours.uend5, strTime)) {
+                        //Fifth Hour
+                        refreshVars(Hours.uend5, strTime, "5th hour");
+                    } else if (isTimeBetweenTwoTime(Hours.uend5, Hours.ustart6, strTime)) {
+                        //PP
+                        refreshVars(Hours.ustart6, strTime, "passing period");
+
                     } else if (isTimeBetweenTwoTime(Hours.ustart6, Hours.uend6, strTime)) {
-                        refreshVars(Hours.uend6, strTime, "6th");
+                        //Sixth Hour
+                        refreshVars(Hours.uend6, strTime, "6th hour");
+                    } else if (isTimeBetweenTwoTime(Hours.uend6, Hours.ustart7, strTime)) {
+                        //PP
+                        refreshVars(Hours.ustart7, strTime, "passing period");
+
                     } else if (isTimeBetweenTwoTime(Hours.ustart7, Hours.uend7, strTime)) {
-                        refreshVars(Hours.uend7, strTime, "7th");
+                        //Seventh Hour
+                        refreshVars(Hours.uend7, strTime, "7th hour");
                     } else {
                         timeView.setText("Passing Period");
 
@@ -263,27 +334,27 @@ public class timeTab extends Fragment {
                 //UPPERCLASSMAN STARS
                 else if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY) {
                     if (isTimeBetweenTwoTime(Hours.ustart0, Hours.uend0, strTime)) {
-                        refreshVars(Hours.uend0, strTime, "0");
+                        refreshVars(Hours.uend0, strTime, "0 hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustartSTRETCH, Hours.uendSTRETCH, strTime)) {
                         refreshVars(Hours.uendSTRETCH, strTime, "STRETCH");
                     } else if (isTimeBetweenTwoTime(Hours.ustart1STARS, Hours.uend1STARS, strTime)) {
-                        refreshVars(Hours.uend1STARS, strTime, "1st");
+                        refreshVars(Hours.uend1STARS, strTime, "1st hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustartTTS, Hours.uendTTS, strTime)) {
                         refreshVars(Hours.uendTTS, strTime, "STARS");
                     } else if (isTimeBetweenTwoTime(Hours.ustart2STARS, Hours.uend2STARS, strTime)) {
-                        refreshVars(Hours.uend2STARS, strTime, "2nd");
+                        refreshVars(Hours.uend2STARS, strTime, "2nd hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustart3STARS, Hours.uend3STARS, strTime)) {
-                        refreshVars(Hours.uend3STARS, strTime, "3rd");
+                        refreshVars(Hours.uend3STARS, strTime, "3rd hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustart4STARS, Hours.uend4STARS, strTime)) {
-                        refreshVars(Hours.uend4STARS, strTime, "4th");
+                        refreshVars(Hours.uend4STARS, strTime, "4th hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustart5STARS, Hours.uend5STARS, strTime)) {
-                        refreshVars(Hours.uend5STARS, strTime, "5th");
+                        refreshVars(Hours.uend5STARS, strTime, "5th hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustartTTS2, Hours.uendTTS2, strTime)) {
                         refreshVars(Hours.uendTTS2, strTime, "STARS");
                     } else if (isTimeBetweenTwoTime(Hours.ustart6STARS, Hours.uend6STARS, strTime)) {
-                        refreshVars(Hours.uend6STARS, strTime, "6th");
+                        refreshVars(Hours.uend6STARS, strTime, "6th hour");
                     } else if (isTimeBetweenTwoTime(Hours.ustart7STARS, Hours.uend7STARS, strTime)) {
-                        refreshVars(Hours.uend7STARS, strTime, "7th");
+                        refreshVars(Hours.uend7STARS, strTime, "7th hour");
                     } else {
                         timeView.setText("Passing Period");
 
@@ -318,7 +389,7 @@ public class timeTab extends Fragment {
             displayTimeLeft =
                     String.valueOf(diffMinutes) + ":" + String.format("%02d", diffSeconds) +
                             "\n" +
-                            "Minutes left in " + currentHour + " hour";
+                            "Minutes left in " + currentHour;
             SpannableString s = new SpannableString(displayTimeLeft);
             s.setSpan(new RelativeSizeSpan(2.5f), 0, 5, 0);
             timeView.setText(s);
@@ -377,7 +448,7 @@ public class timeTab extends Fragment {
         private static final String fstart0 = "07:35:00";
         private static final String fend0 = "08:40:00";
 
-        private static final String fstartSTRETCH = "08:41:00";
+        private static final String fstartSTRETCH = "08:40:00";
         private static final String fendSTRETCH = "08:55:00";
 
         private static final String fstart1 = "09:00:00";
@@ -406,7 +477,7 @@ public class timeTab extends Fragment {
         private static final String ustart0 = "07:35:00";
         private static final String uend0 = "08:40:00";
 
-        private static final String ustartSTRETCH = "08:40:01";
+        private static final String ustartSTRETCH = "08:40:00";
         private static final String uendSTRETCH = "08:55:00";
 
         private static final String ustart1 = "09:00:00";
